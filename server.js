@@ -7,6 +7,9 @@ const user = require("./routes/user");
 const comment = require("./routes/comment")
 const bodyParser = require("body-parser");
 const app = express()
+const cors = require("cors");
+
+app.use(cors())
 app.use(express.json())
 mongoose.connect(process.env.uri).then(() => console.log("db is connected")).catch((err) => console.log(err))
 app.use(bodyParser.json())
